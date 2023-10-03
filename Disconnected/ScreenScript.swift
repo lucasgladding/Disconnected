@@ -3,11 +3,11 @@ import SwiftUI
 let didChangeScreenParamsEvent = NotificationCenter.default.publisher(for: NSApplication.didChangeScreenParametersNotification)
 
 struct ScreenScript: View {
-    @State
-    var presentScriptSheet = false
-
     @AppStorage("screen.script")
     var script: URL?
+
+    @State
+    var presentScriptSheet = false
 
     @State
     var debug: String = ""
@@ -16,9 +16,9 @@ struct ScreenScript: View {
         VStack(spacing: 0) {
             VStack {
                 Image(systemName: "display")
-                    .font(.system(size: 60, weight: .thin))
+                    .font(.system(size: 50, weight: .thin))
             }
-            .frame(maxWidth: .infinity, minHeight: 100)
+            .frame(maxWidth: .infinity, minHeight: 150)
             .background(Color.white)
 
             VStack(spacing: 20) {
@@ -47,24 +47,24 @@ struct ScreenScript: View {
 
                 VStack(alignment: .leading) {
                     ScrollView {
-                        Text(debug)
-                            .font(.body.monospaced())
-                            .frame(maxWidth: .infinity)
+                        HStack {
+                            Text(debug)
+                                .font(.body.monospaced())
+                            Spacer()
+                        }
                     }
-                    .frame(height: 100)
+                    .frame(maxHeight: .infinity)
                     .background(Color.white)
 
-                    Button("Clear output") {
+                    Button("Clear debug") {
                         debug = ""
                     }
                 }
             }
             .padding()
-
-            Spacer()
         }
-        .onReceive(didChangeScreenParamsEvent) { _ in
-            print("did change screen params")
+        .onReceive(didChangeScreenParamsEvent) { event in
+            print("Changed screen params \(event)")
             execute()
         }
     }

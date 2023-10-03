@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A0DE0C7E2ACB93810072BE69 /* DisconnectedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE0C7D2ACB93810072BE69 /* DisconnectedApp.swift */; };
-		A0DE0C802ACB93810072BE69 /* ScriptForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE0C7F2ACB93810072BE69 /* ScriptForm.swift */; };
+		A0DE0C802ACB93810072BE69 /* ScreenScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE0C7F2ACB93810072BE69 /* ScreenScript.swift */; };
 		A0DE0C822ACB93820072BE69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0DE0C812ACB93820072BE69 /* Assets.xcassets */; };
 		A0DE0C852ACB93820072BE69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0DE0C842ACB93820072BE69 /* Preview Assets.xcassets */; };
 		A0DE0C902ACB93820072BE69 /* DisconnectedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE0C8F2ACB93820072BE69 /* DisconnectedTests.swift */; };
@@ -36,7 +36,7 @@
 /* Begin PBXFileReference section */
 		A0DE0C7A2ACB93810072BE69 /* Disconnected.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Disconnected.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0DE0C7D2ACB93810072BE69 /* DisconnectedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectedApp.swift; sourceTree = "<group>"; };
-		A0DE0C7F2ACB93810072BE69 /* ScriptForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptForm.swift; sourceTree = "<group>"; };
+		A0DE0C7F2ACB93810072BE69 /* ScreenScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenScript.swift; sourceTree = "<group>"; };
 		A0DE0C812ACB93820072BE69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0DE0C842ACB93820072BE69 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A0DE0C862ACB93820072BE69 /* Disconnected.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Disconnected.entitlements; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				A0DE0C7D2ACB93810072BE69 /* DisconnectedApp.swift */,
-				A0DE0C7F2ACB93810072BE69 /* ScriptForm.swift */,
+				A0DE0C7F2ACB93810072BE69 /* ScreenScript.swift */,
 				A0DE0C812ACB93820072BE69 /* Assets.xcassets */,
 				A0DE0C862ACB93820072BE69 /* Disconnected.entitlements */,
 				A0DE0C832ACB93820072BE69 /* Preview Content */,
@@ -259,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0DE0C802ACB93810072BE69 /* ScriptForm.swift in Sources */,
+				A0DE0C802ACB93810072BE69 /* ScreenScript.swift in Sources */,
 				A0DE0C7E2ACB93810072BE69 /* DisconnectedApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +434,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gladdingdevelopment.Disconnected;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -461,6 +462,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gladdingdevelopment.Disconnected;
 				PRODUCT_NAME = "$(TARGET_NAME)";

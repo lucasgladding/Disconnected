@@ -11,7 +11,7 @@ import SwiftUI
 struct DisconnectedApp: App {
     var body: some Scene {
         WindowGroup {
-            ScriptForm()
+            ScreenScript()
         }
     }
 }
