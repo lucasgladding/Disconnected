@@ -63,8 +63,8 @@ struct ScreenScript: View {
             }
             .padding()
         }
-        .onReceive(didChangeScreenParamsEvent) { event in
-            print("Changed screen params \(event)")
+        .onReceive(didChangeScreenParamsEvent) { _ in
+            print("Changed screen params")
             execute()
         }
     }
@@ -83,34 +83,12 @@ struct ScreenScript: View {
             return
         }
         do {
-            if let output = try run(script: script) {
+            if let output = try Script.run(script: script) {
                 debug += output
             }
         } catch {
             print("Unexpected error \(error)")
         }
-    }
-
-    private func run(script: URL) throws -> String? {
-        let pipe = Pipe()
-
-        let process = Process()
-        process.standardOutput = pipe
-        process.standardError = pipe
-
-        process.executableURL = URL(fileURLWithPath: "/bin/bash")
-        process.arguments = ["-c", "source \(script.path)"]
-
-        try process.run()
-
-        print("Script completed")
-
-        guard let data = try pipe.fileHandleForReading.readToEnd() else {
-            print("Could not read output from pipe")
-            return nil
-        }
-
-        return String(data: data, encoding: .utf8)
     }
 
     private func remove() {

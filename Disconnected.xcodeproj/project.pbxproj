@@ -14,6 +14,7 @@
 		A0DE0C902ACB93820072BE69 /* DisconnectedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE0C8F2ACB93820072BE69 /* DisconnectedTests.swift */; };
 		A0DE0C9A2ACB93820072BE69 /* DisconnectedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE0C992ACB93820072BE69 /* DisconnectedUITests.swift */; };
 		A0DE0C9C2ACB93820072BE69 /* DisconnectedUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE0C9B2ACB93820072BE69 /* DisconnectedUITestsLaunchTests.swift */; };
+		A0F1DE2A2ACC3F060040B845 /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F1DE292ACC3F060040B845 /* Script.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		A0DE0C952ACB93820072BE69 /* DisconnectedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DisconnectedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0DE0C992ACB93820072BE69 /* DisconnectedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectedUITests.swift; sourceTree = "<group>"; };
 		A0DE0C9B2ACB93820072BE69 /* DisconnectedUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectedUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A0F1DE292ACC3F060040B845 /* Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Script.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				A0DE0C7D2ACB93810072BE69 /* DisconnectedApp.swift */,
 				A0DE0C7F2ACB93810072BE69 /* ScreenScript.swift */,
+				A0F1DE292ACC3F060040B845 /* Script.swift */,
 				A0DE0C812ACB93820072BE69 /* Assets.xcassets */,
 				A0DE0C862ACB93820072BE69 /* Disconnected.entitlements */,
 				A0DE0C832ACB93820072BE69 /* Preview Content */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0DE0C802ACB93810072BE69 /* ScreenScript.swift in Sources */,
+				A0F1DE2A2ACC3F060040B845 /* Script.swift in Sources */,
 				A0DE0C7E2ACB93810072BE69 /* DisconnectedApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
