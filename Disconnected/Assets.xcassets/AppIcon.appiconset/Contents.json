@@ -31,21 +31,25 @@
       "size" : "128x128"
     },
     {
+      "filename" : "disconnected-icon-2@0.5x.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "256x256"
     },
     {
+      "filename" : "disconnected-icon-2.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "256x256"
     },
     {
+      "filename" : "disconnected-icon-2 1.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "512x512"
     },
     {
+      "filename" : "disconnected-icon-2@2x.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"
