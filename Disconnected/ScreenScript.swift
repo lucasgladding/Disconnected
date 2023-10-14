@@ -4,19 +4,19 @@ let didChangeScreenParamsEvent = NotificationCenter.default.publisher(for: NSApp
 
 struct ScreenScript: View {
     @AppStorage("screen.path")
-    var path = ""
+    private var path = ""
 
     @AppStorage("screen.arguments")
-    var arguments = ""
+    private var arguments = ""
 
     @State
-    var presentFileImporter = false
+    private var presentFileImporter = false
 
     @State
-    var debug = ""
+    private var debug = ""
 
     @State
-    var frames: [CGRect] = []
+    private var frames: [CGRect] = []
 
     var body: some View {
         VStack(spacing: 0) {
