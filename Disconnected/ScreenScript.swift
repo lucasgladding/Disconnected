@@ -10,7 +10,7 @@ struct ScreenScript: View {
     var arguments = ""
 
     @State
-    var presentFileImportSheet = false
+    var presentFileImporter = false
 
     @State
     var debug = ""
@@ -29,9 +29,9 @@ struct ScreenScript: View {
                     HStack {
                         Text("Script")
                         TextField("Path", text: $path)
-                        Button("Select script...", action: { presentFileImportSheet = true })
+                        Button("Select script...", action: { presentFileImporter = true })
                             .fileImporter(
-                                isPresented: $presentFileImportSheet,
+                                isPresented: $presentFileImporter,
                                 allowedContentTypes: [.script],
                                 onCompletion: onSelect
                             )
