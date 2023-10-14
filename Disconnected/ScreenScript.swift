@@ -3,14 +3,17 @@ import SwiftUI
 let didChangeScreenParamsEvent = NotificationCenter.default.publisher(for: NSApplication.didChangeScreenParametersNotification)
 
 struct ScreenScript: View {
-    @AppStorage("screen.script")
-    var script: URL?
+    @AppStorage("screen.path")
+    var path = ""
+
+    @AppStorage("screen.arguments")
+    var arguments = ""
 
     @State
-    var presentScriptSheet = false
+    var presentFileImportSheet = false
 
     @State
-    var debug: String = ""
+    var debug = ""
 
     var body: some View {
         VStack(spacing: 0) {
@@ -22,24 +25,21 @@ struct ScreenScript: View {
             .background(Color.white)
 
             VStack(spacing: 20) {
-                VStack(alignment: .leading) {
-                    Text("Choose the script to execute when receiving the system event.")
-                    if let script = script {
-                        HStack {
-                            Label(script.path, systemImage: "terminal.fill")
-                                .foregroundColor(.secondary)
-                            Spacer()
-                            Button("Remove script", action: remove)
-                        }
-                    } else {
-                        HStack {
-                            Button("Select script...", action: { presentScriptSheet = true })
-                                .fileImporter(
-                                    isPresented: $presentScriptSheet,
-                                    allowedContentTypes: [.script],
-                                    onCompletion: onSelect
-                                )
-                        }
+                VStack(alignment: .leading, spacing: 10) {
+                    HStack {
+                        Text("Script")
+                        TextField("Path", text: $path)
+                        Button("Select script...", action: { presentFileImportSheet = true })
+                            .fileImporter(
+                                isPresented: $presentFileImportSheet,
+                                allowedContentTypes: [.script],
+                                onCompletion: onSelect
+                            )
+                    }
+
+                    HStack {
+                        Text("Arguments")
+                        TextField("Arguments", text: $arguments)
                     }
                 }
 
@@ -72,27 +72,20 @@ struct ScreenScript: View {
     private func onSelect(_ result: Result<URL, Error>) {
         switch result {
         case .success(let file):
-            script = file
+            path = file.path()
         case .failure(let error):
             print("Could not select script \(error)")
         }
     }
 
     private func execute() {
-        guard let script = script else {
-            return
-        }
         do {
-            if let output = try Script.run(script: script) {
+            if let output = try Script.run(source: path, arguments: arguments) {
                 debug += output
             }
         } catch {
             print("Unexpected error \(error)")
         }
-    }
-
-    private func remove() {
-        script = nil
     }
 }
 

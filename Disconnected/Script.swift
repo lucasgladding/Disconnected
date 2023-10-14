@@ -1,15 +1,20 @@
 import Foundation
 
 class Script {
-    static func run(script: URL) throws -> String? {
+    static func run(source: String, arguments: String = "") throws -> String? {
         let pipe = Pipe()
 
         let process = Process()
         process.standardOutput = pipe
         process.standardError = pipe
 
+        var components: [String] = [source]
+        if arguments != "" {
+            components.append(arguments)
+        }
+
         process.executableURL = URL(fileURLWithPath: "/bin/bash")
-        process.arguments = ["-c", "source \(script.path)"]
+        process.arguments = components
 
         try process.run()
 
