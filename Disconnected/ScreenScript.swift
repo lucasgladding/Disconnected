@@ -15,6 +15,9 @@ struct ScreenScript: View {
     @State
     var debug = ""
 
+    @State
+    var frames: [CGRect] = []
+
     var body: some View {
         VStack(spacing: 0) {
             VStack {
@@ -25,19 +28,21 @@ struct ScreenScript: View {
             .background(Color.white)
 
             VStack(spacing: 20) {
-                VStack(alignment: .leading, spacing: 10) {
-                    HStack {
+                Grid(alignment: .trailing) {
+                    GridRow {
                         Text("Script")
-                        TextField("Path", text: $path)
-                        Button("Select script...", action: { presentFileImporter = true })
-                            .fileImporter(
-                                isPresented: $presentFileImporter,
-                                allowedContentTypes: [.script],
-                                onCompletion: onSelect
-                            )
+                        HStack {
+                            TextField("Path", text: $path)
+                            Button("Select script...", action: { presentFileImporter = true })
+                                .fileImporter(
+                                    isPresented: $presentFileImporter,
+                                    allowedContentTypes: [.script],
+                                    onCompletion: onSelect
+                                )
+                        }
                     }
 
-                    HStack {
+                    GridRow {
                         Text("Arguments")
                         TextField("Arguments", text: $arguments)
                     }
@@ -64,6 +69,11 @@ struct ScreenScript: View {
             .padding()
         }
         .onReceive(didChangeScreenParamsEvent) { _ in
+            let previous = frames
+            frames = NSScreen.screens.map { $0.frame }
+            guard previous == frames else {
+                return
+            }
             print("Changed screen params")
             execute()
         }
